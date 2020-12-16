@@ -38,6 +38,8 @@
 				</a>
 			</div>
 			<div class="card-body p-0">
+
+				<div class="text-center py-2" style="background: black; color: white;">List Of Exams</div>
 				<!-- here we show exams list -->
 
 				<div class="table-responsive">
@@ -54,14 +56,14 @@
 							<tr>
 								<td>1</td>
 								<td>Farsi</td>
-								<td><button type="button" class="btn btn-outline-success">View Answers</button></td>
-								<td><button type="button" class="btn btn-success">Submit Answers</button></td>
+								<td><a href="<?= site_url('exams/view_answers') ?>" type="button" class="btn btn-sm btn-outline-success">View Answers</a></td>
+								<td><a href="<?= site_url('exams/submit_answers') ?>" type="button" class="btn btn-sm btn-success">Submit Answers</a></td>
 							</tr>
 							<tr>
 								<td>2</td>
 								<td>Shimi</td>
-								<td><button type="button" class="btn btn-outline-success">View Answers</button></td>
-								<td><button type="button" class="btn btn-success">Submit Answers</button></td>
+								<td><a href="<?= site_url('exams/view_answers') ?>" type="button" class="btn btn-sm btn-outline-success">View Answers</a></td>
+								<td><a href="<?= site_url('exams/submit_answers') ?>" type="button" class="btn btn-sm btn-success">Submit Answers</a></td>
 							</tr>
 						</tbody>
 					</table>
