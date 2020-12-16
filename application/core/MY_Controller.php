@@ -12,6 +12,11 @@ class MY_Controller extends CI_Controller
 
 		$this->load->model('Users_model');
 
+		/* check if token exist */
+		if (empty($_SESSION['user']) && isset($_COOKIE['token']))
+			$_SESSION['user']['token'] = $_COOKIE['token'];
+
+		
 		if (!empty($_SESSION['user'])) {
 			$token = $_SESSION['user']['token'];
 			//check token
