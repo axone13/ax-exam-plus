@@ -31,20 +31,24 @@
 	<div class="container p-3">
 		<div class="card col-12 col-md-10 col-lg-8 mx-auto p-0 shadow-sm">
 			<div class="card-header bg-primary text-white py-3">
-				<h5>Login To axExamPlus</h5>
+				<h5>Login To axExam +</h5>
 			</div>
 			<div class="card-body">
-				<form>
+				<form method="POST">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Username : </label>
-						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						<label for="username">Username : </label>
+						<input type="text" class="form-control" id="username" name="username" required>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Password : </label>
-						<input type="password" class="form-control" id="exampleInputPassword1">
+						<label for="password">Password : </label>
+						<input type="password" class="form-control" id="password" name="password" required>
 					</div>
-					<button type="submit" class="btn btn-primary mx-auto d-block">Login To Site</button>
+					<input type="submit" name="login" class="btn btn-primary mx-auto d-block" value="Login To Site :)">
 				</form>
+
+				<?php if (!empty($error)) { ?>
+					<div class="my-3 text-danger text-center"><?= $error; ?></div>
+				<?php } ?>
 			</div>
 		</div>
 
