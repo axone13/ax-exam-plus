@@ -9,4 +9,11 @@ class Exams extends MY_Controller
 
 		$this->load->view('exams_list' , $data);
 	}
+
+	public function submit_answers()
+	{
+		$data = $this->data;
+
+		$this->load->view('submit_answers' , $data);
+	}
 }
