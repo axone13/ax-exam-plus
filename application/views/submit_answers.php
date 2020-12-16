@@ -43,6 +43,10 @@
 	.empty-answer {
 		background: #f2f2f2;
 	}
+
+	.bg-darkblue{
+		background: #182e7b !important;
+	}
 </style>
 
 <body style="background: #ebf0ff;">
@@ -74,7 +78,7 @@
 						<tbody>
 							<?php for ($i = 1; $i <= 20; $i++) { ?>
 								<tr>
-									<td><?= $i ?></td>
+									<td class="bg-darkblue text-white"><?= $i ?></td>
 									<td><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></td>
 									<td><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></td>
 									<td><input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"></td>

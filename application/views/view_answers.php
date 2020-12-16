@@ -26,6 +26,10 @@
 		font-family: 'Alatsi', sans-serif;
 	}
 
+	.bg-darkblue{
+		background: #182e7b !important;
+	}
+
 	.correct-answer {
 		background: #28a745;
 		color: white;
@@ -65,7 +69,7 @@
 						<tbody>
 							<?php for ($i = 1; $i <= 20; $i++) { $next_answer = rand(1,5); $correct_answer = rand(1,5); ?>
 								<tr>
-									<td><?= $i ?></td>
+									<td class="bg-darkblue text-white"><?= $i ?></td>
 									<td class="<?php if($correct_answer == 1) echo "correct-answer"; if($next_answer == 1) echo "next-answer"; ?>">20%</td>
 									<td class="<?php if($correct_answer == 2) echo "correct-answer"; if($next_answer == 2) echo "next-answer"; ?>">20%</td>
 									<td class="<?php if($correct_answer == 3) echo "correct-answer"; if($next_answer == 3) echo "next-answer"; ?>">20%</td>
@@ -81,7 +85,7 @@
 		</div>
 		
 		<div class="text-center my-5">
-			<button type="button" class="btn btn-success">Back To Exams List</button>
+			<a type="button" class="btn btn-success" href="<?= site_url('exams/list')?>">Back To Exams List</a>
 		</div>
 	</div>
 </body>
