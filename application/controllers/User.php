@@ -28,6 +28,7 @@ class User extends CI_Controller
 	public function logout()
 	{
 		unset($_SESSION['user']);
+		setcookie("token", "", time() - 3600 , "/");
 		redirect(site_url('user/login'));
 	}
 }
