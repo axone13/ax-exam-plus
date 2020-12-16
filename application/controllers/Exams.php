@@ -16,4 +16,11 @@ class Exams extends MY_Controller
 
 		$this->load->view('submit_answers' , $data);
 	}
+
+	public function view_answers()
+	{
+		$data = $this->data;
+
+		$this->load->view('view_answers' , $data);
+	}
 }
