@@ -18,4 +18,10 @@ class User extends CI_Controller
 
 		$this->load->view('login' , $data);
 	}
+
+	public function logout()
+    {
+        unset($_SESSION['user']);
+        redirect(site_url('user/login'));
+    }
 }

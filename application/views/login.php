@@ -27,7 +27,7 @@
 	}
 </style>
 
-<body style="background: #d8f2ff;">
+<body style="background: #ebf0ff;">
 	<div class="container p-3">
 		<div class="card col-12 col-md-10 col-lg-8 mx-auto p-0 shadow-sm">
 			<div class="card-header bg-primary text-white py-3">

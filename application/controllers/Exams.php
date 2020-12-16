@@ -5,7 +5,7 @@ class Exams extends MY_Controller
 {
 	public function list()
 	{
-		$data = null;
+		$data = $this->data;
 
 		$this->load->view('exams_list' , $data);
 	}

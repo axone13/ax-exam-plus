@@ -27,14 +27,46 @@
 	}
 </style>
 
-<body style="background: #d8f2ff;">
+<body style="background: #ebf0ff;">
 	<div class="container p-3">
 		<div class="card col-12 col-md-10 col-lg-8 mx-auto p-0 shadow-sm">
-			<div class="card-header bg-primary text-white py-3">
-				<h5>Exams list</h5>
+			<div class="card-header bg-primary text-white py-3 d-flex">
+				<h5><?= $user['name'] ?></h5>
+
+				<a class="ml-auto" href="<?= site_url('user/logout') ?>" style="color: inherit;">
+					logout
+				</a>
 			</div>
-			<div class="card-body">
-				
+			<div class="card-body p-0">
+				<!-- here we show exams list -->
+
+				<div class="table-responsive">
+					<table class="m-0 table table-hover text-nowrap text-center">
+						<thead>
+							<tr>
+								<th width="70px" class="px-3">#</th>
+								<th>Exam title</th>
+								<th width="100px"></th>
+								<th width="100px"></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>Farsi</td>
+								<td><button type="button" class="btn btn-outline-success">View Answers</button></td>
+								<td><button type="button" class="btn btn-success">Submit Answers</button></td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>Shimi</td>
+								<td><button type="button" class="btn btn-outline-success">View Answers</button></td>
+								<td><button type="button" class="btn btn-success">Submit Answers</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
 			</div>
 		</div>
 	</div>
