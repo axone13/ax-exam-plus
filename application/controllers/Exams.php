@@ -43,9 +43,9 @@ class Exams extends MY_Controller
 		$error = null;
 		$this->load->model('Exams_model');
 
-		$params = required_params(['question_id', 'opt'] , "GET");
+		$params = required_params(['question_id'] , "GET");
 		if (!is_error($params)) {
-			$this->Exams_model->submitUserAnswerTemp($this->data['user']['id'] , $params['question_id'] , $params['opt']);
+			$this->Exams_model->submitUserAnswerTemp($this->data['user']['id'] , $params['question_id'] , $this->input->get('opt'));
 		} else {
 			$error = is_error($params);
 		}
@@ -62,6 +62,20 @@ class Exams extends MY_Controller
 
 		/* get exam answers */
 		$data['exam']['answers'] = $this->Exams_model->getExamAnwers($exam_id);
+
+		$this->load->view('view_answers', $data);
+	}
+
+	public function view_answers_temp($exam_id)
+	{
+		$data = $this->data;
+
+		/* get exam details */
+		$this->load->model('Exams_model');
+		$data['exam'] = $this->Exams_model->getExam($exam_id);
+
+		/* get exam answers */
+		$data['exam']['answers'] = $this->Exams_model->getExamAnwersTemp($exam_id);
 
 		$this->load->view('view_answers', $data);
 	}
