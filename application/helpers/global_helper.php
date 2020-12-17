@@ -108,19 +108,26 @@ function trim_text($text, $char_count)
 function calcCorrectAnswer($array)
 {
 	/* check if all of the answers are 0 */
-	if($array[0] == 0 && $array[1] == 0 && $array[2] == 0 && $array[3] == 0 )
-		return 0;
+	$isZero = true;
+	foreach ($array as $i){
+		if($i > 0) $isZero = false;
+	}
+	if ($isZero) return 0;
 
 	return array_keys($array, max($array))[0] + 1;
 }
 
 function calcNextAnswer($array)
 {
-	/* check if all of the answers are 0 */
-	if($array[0] == 0 && $array[1] == 0 && $array[2] == 0 && $array[3] == 0 )
-		return 0;
-		
 	$max = array_keys($array, max($array))[0];
 	unset($array[$max]);
+
+	/* check if all of the answers are 0 */
+	$isZero = true;
+	foreach ($array as $i){
+		if($i > 0) $isZero = false;
+	}
+	if ($isZero) return 0;
+
 	return array_keys($array, max($array))[0] + 1;
 }
