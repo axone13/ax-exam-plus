@@ -26,7 +26,7 @@
 		font-family: 'Alatsi', sans-serif;
 	}
 
-	.bg-darkblue{
+	.bg-darkblue {
 		background: #182e7b !important;
 	}
 
@@ -63,29 +63,53 @@
 								<th>2</th>
 								<th>3</th>
 								<th>4</th>
-								<th>-</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php for ($i = 1; $i <= 20; $i++) { $next_answer = rand(1,5); $correct_answer = rand(1,5); ?>
+							<?php
+							foreach ($exam_answers as $answer) {
+								/* $precentages['o0'] = number_format($answer['total'] == 0 ? 0 : $answer['o0'] * 100 / $answer['total'], 0) . '%'; */
+								$precentages['o1'] = number_format($answer['total'] == 0 ? 0 : $answer['o1'] * 100 / $answer['total'], 0) . '%';
+								$precentages['o2'] = number_format($answer['total'] == 0 ? 0 : $answer['o2'] * 100 / $answer['total'], 0) . '%';
+								$precentages['o3'] = number_format($answer['total'] == 0 ? 0 : $answer['o3'] * 100 / $answer['total'], 0) . '%';
+								$precentages['o4'] = number_format($answer['total'] == 0 ? 0 : $answer['o4'] * 100 / $answer['total'], 0) . '%';
+								$correct_answer = calcCorrectAnswer([$answer['o1'] , $answer['o2'] , $answer['o3'] , $answer['o4']]);
+								$next_answer = calcNextAnswer([$answer['o1'] , $answer['o2'] , $answer['o3'] , $answer['o4']]);
+
+							?>
 								<tr>
-									<td class="bg-darkblue text-white"><?= $i ?></td>
-									<td class="<?php if($correct_answer == 1) echo "correct-answer"; if($next_answer == 1) echo "next-answer"; ?>">20%</td>
-									<td class="<?php if($correct_answer == 2) echo "correct-answer"; if($next_answer == 2) echo "next-answer"; ?>">20%</td>
-									<td class="<?php if($correct_answer == 3) echo "correct-answer"; if($next_answer == 3) echo "next-answer"; ?>">20%</td>
-									<td class="<?php if($correct_answer == 4) echo "correct-answer"; if($next_answer == 4) echo "next-answer"; ?>">20%</td>
-									<td class="<?php if($correct_answer == 5) echo "correct-answer"; if($next_answer == 5) echo "next-answer"; ?>">20%</td>
+									<td class="bg-darkblue text-white">
+										<?= $answer['question_number'] ?>
+									</td>
+
+									<td class="<?php if ($correct_answer == 1) echo "correct-answer"; if ($next_answer == 1) echo "next-answer"; ?>">
+										<?= $precentages['o1'] ?>
+									</td>
+
+									<td class="<?php if ($correct_answer == 2) echo "correct-answer"; if ($next_answer == 2) echo "next-answer"; ?>">
+										<?= $precentages['o2'] ?>
+									</td>
+
+									<td class="<?php if ($correct_answer == 3) echo "correct-answer"; if ($next_answer == 3) echo "next-answer"; ?>">
+										<?= $precentages['o3'] ?>
+									</td>
+
+									<td class="<?php if ($correct_answer == 4) echo "correct-answer"; if ($next_answer == 4) echo "next-answer"; ?>">
+										<?= $precentages['o4'] ?>
+									</td>
 								</tr>
-							<?php } ?>
+							<?php
+							}
+							?>
 						</tbody>
 					</table>
 				</div>
 
 			</div>
 		</div>
-		
+
 		<div class="text-center my-5">
-			<a type="button" class="btn btn-success" href="<?= site_url('exams/list')?>">Back To Exams List</a>
+			<a type="button" class="btn btn-success" href="<?= site_url('exams/list') ?>">Back To Exams List</a>
 		</div>
 	</div>
 </body>

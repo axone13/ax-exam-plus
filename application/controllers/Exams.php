@@ -17,9 +17,13 @@ class Exams extends MY_Controller
 		$this->load->view('submit_answers' , $data);
 	}
 
-	public function view_answers()
+	public function view_answers($exam_id)
 	{
 		$data = $this->data;
+
+		/* get exam answers */
+		$this->load->model('Exams_model');
+		$data['exam_answers'] = $this->Exams_model->getExamAnwers($exam_id);
 
 		$this->load->view('view_answers' , $data);
 	}
