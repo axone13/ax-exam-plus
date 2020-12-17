@@ -51,7 +51,7 @@
 				</a>
 			</div>
 			<div class="card-body p-0">
-				<div class="text-center py-2" style="background: black; color: white;">View Answers For : Farsi</div>
+				<div class="text-center py-2" style="background: black; color: white;">View Answers For : <?= $exam['title'] ?></div>
 				<!-- here we show exams form -->
 
 				<div class="table-responsive">
@@ -67,7 +67,7 @@
 						</thead>
 						<tbody>
 							<?php
-							foreach ($exam_answers as $answer) {
+							foreach ($exam['answers'] as $answer) {
 								/* $precentages['o0'] = number_format($answer['total'] == 0 ? 0 : $answer['o0'] * 100 / $answer['total'], 0) . '%'; */
 								$precentages['o1'] = number_format($answer['total'] == 0 ? 0 : $answer['o1'] * 100 / $answer['total'], 0) . '%';
 								$precentages['o2'] = number_format($answer['total'] == 0 ? 0 : $answer['o2'] * 100 / $answer['total'], 0) . '%';

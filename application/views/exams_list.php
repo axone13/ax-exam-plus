@@ -53,18 +53,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td>1</td>
-								<td>Farsi</td>
-								<td><a href="<?= site_url('exams/view_answers') ?>" type="button" class="btn btn-sm btn-outline-success">View Answers</a></td>
-								<td><a href="<?= site_url('exams/submit_answers') ?>" type="button" class="btn btn-sm btn-success">Submit Answers</a></td>
-							</tr>
-							<tr>
-								<td>2</td>
-								<td>Shimi</td>
-								<td><a href="<?= site_url('exams/view_answers') ?>" type="button" class="btn btn-sm btn-outline-success">View Answers</a></td>
-								<td><a href="<?= site_url('exams/submit_answers') ?>" type="button" class="btn btn-sm btn-success">Submit Answers</a></td>
-							</tr>
+							<?php foreach ($exams_list as $exam) { ?>
+								<tr>
+									<td><?= $exam['id'] ?></td>
+									<td><?= $exam['title'] ?></td>
+									<td><a href="<?= site_url('exams/view_answers/' . $exam['id']) ?>" type="button" class="btn btn-sm btn-outline-success">View Answers</a></td>
+									<td><a href="<?= site_url('exams/submit_answers/' . $exam['id']) ?>" type="button" class="btn btn-sm btn-success">Submit Answers</a></td>
+								</tr>
+							<?php } ?>
 						</tbody>
 					</table>
 				</div>
