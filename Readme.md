@@ -1,5 +1,5 @@
 ### What is Exam Plus?
-Exam Plus is a tool for students to solve exams together. Students submit their answers for questions and programs calculate best answer based on students answers.
+Exam Plus is a tool for students to solve exams together. Students submit their answers for questions. Then, program calculate the best answer for each question based on students answers.
 
 #### how to install :
 1. First, you need to copy the `system` and `application` folders into a php hosting.
