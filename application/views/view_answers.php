@@ -109,7 +109,7 @@
 		</div>
 
 		<div class="text-center my-5">
-			<a type="button" class="btn btn-success" href="<?= site_url('exams/list') ?>">Back To Exams List</a>
+			<a type="button" class="btn btn-info" href="<?= site_url('exams/list') ?>">Back To Exams List</a>
 		</div>
 	</div>
 </body>

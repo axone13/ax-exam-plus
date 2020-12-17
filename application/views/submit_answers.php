@@ -57,7 +57,7 @@
 			</div>
 
 			<div class="col-12 col-md-10 col-lg-8 mx-auto p-0 mb-5">
-				<a href="<?= site_url('exams/view_answers/' . $this->uri->segment(3)) ?>" class="btn btn-success btn-block">Go To Answers</a>
+				<a href="<?= site_url('exams/view_answers/' . $this->uri->segment(3)) ?>" class="btn btn-info btn-block">Go To Answers</a>
 			</div>
 		<?php } ?>
 
@@ -150,7 +150,7 @@
 		</form>
 
 		<div class="text-center mt-3 mb-5">
-			<a type="button" class="btn btn-outline-success" href="<?= site_url('exams/list') ?>" style="width: 200px;">Back To Exams List</a>
+			<a type="button" class="btn btn-outline-info" href="<?= site_url('exams/list') ?>" style="width: 200px;">Back To Exams List</a>
 		</div>
 	</div>
 </body>

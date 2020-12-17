@@ -57,8 +57,8 @@
 								<tr>
 									<td><?= $exam['id'] ?></td>
 									<td><?= $exam['title'] ?></td>
-									<td><a href="<?= site_url('exams/view_answers/' . $exam['id']) ?>" type="button" class="btn btn-sm btn-outline-success">View Answers</a></td>
-									<td><a href="<?= site_url('exams/submit_answers/' . $exam['id']) ?>" type="button" class="btn btn-sm btn-success">Submit Answers</a></td>
+									<td><a href="<?= site_url('exams/view_answers/' . $exam['id']) ?>" type="button" class="btn btn-sm btn-outline-info">View Answers</a></td>
+									<td><a href="<?= site_url('exams/submit_answers/' . $exam['id']) ?>" type="button" class="btn btn-sm btn-info">Submit Answers</a></td>
 								</tr>
 							<?php } ?>
 						</tbody>
