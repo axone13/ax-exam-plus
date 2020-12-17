@@ -13,4 +13,4 @@ Exam Plus is a tool for students to solve exams together. Students submit their 
 users and exams can be managed through domain.com/index.php/admin.\
 the password for admin is the one which you have entered in step 4 when installing. (default: 123456789)
 
-###### Special thanks to Sia for his hellp :heart:
+###### Special thanks to Sia for his help :heart:
