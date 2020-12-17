@@ -13,6 +13,32 @@ class Exams_model extends CI_Model
 		return $this->db->get_where('exams' , ['id' => $exam_id])->row_array();
 	}
 
+	public function getExamQuestions($exam_id){
+		$this->db->order_by('question_number' , 'ASC');
+		return $this->db->get_where('exams_questions' , ['exam_id' => $exam_id])->result_array();
+	}
+
+	public function getUserExamsAnswers($user_id , $exam_id){
+		$sql = "SELECT * FROM `tbl_answers` WHERE user_id = '$user_id' AND question_id in (SELECT id as question_id FROM `tbl_exams_questions` WHERE tbl_exams_questions.exam_id = '$exam_id')";
+		$user_answers = $this->db->query($sql)->result_array();
+		$result = [];
+		foreach ($user_answers as $user_answer) {
+			$result += [$user_answer['question_id'] => $user_answer['opt']];
+		}
+		return $result;
+	}
+
+	public function submitUserAnswer($user_id, $question_id , $opt){
+		/* check if user submitted answer before */
+		$query = $this->db->get_where('answers' , ['question_id' => $question_id , 'user_id' => $user_id]);
+		if($query->num_rows() == 0) {
+			$this->db->insert('answers' , ['question_id' => $question_id , 'user_id' => $user_id , 'opt' => $opt]);
+		} else {
+			$this->db->update('answers' , ['opt' => $opt] , ['question_id' => $question_id , 'user_id' => $user_id]);
+		}
+		return true;
+	}
+
 	public function getExamAnwers($exam_id)
 	{
 		$sql = "
@@ -63,6 +89,8 @@ class Exams_model extends CI_Model
 
 			INNER JOIN
 			tbl_exams_questions ON T.question_id = tbl_exams_questions.id
+
+			ORDER BY tbl_exams_questions.question_number ASC
 		";
 
 		return $this->db->query($sql)->result_array();
