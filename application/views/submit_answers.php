@@ -102,27 +102,41 @@
 										</td>
 
 										<td>
-											<input class="form-check-input" type="radio" name="answers[<?= $question['id'] ?>]" value="1" <?php if ($user_answer == 1) echo 'checked="checked"' ?>>
+											<input class="form-check-input" type="radio" qid="<?= $question['id'] ?>" name="answers[<?= $question['id'] ?>]" value="1" <?php if ($user_answer == 1) echo 'checked="checked"' ?>>
 										</td>
 
 										<td>
-											<input class="form-check-input" type="radio" name="answers[<?= $question['id'] ?>]" value="2" <?php if ($user_answer == 2) echo 'checked="checked"' ?>>
+											<input class="form-check-input" type="radio" qid="<?= $question['id'] ?>" name="answers[<?= $question['id'] ?>]" value="2" <?php if ($user_answer == 2) echo 'checked="checked"' ?>>
 										</td>
 
 										<td>
-											<input class="form-check-input" type="radio" name="answers[<?= $question['id'] ?>]" value="3" <?php if ($user_answer == 3) echo 'checked="checked"' ?>>
+											<input class="form-check-input" type="radio" qid="<?= $question['id'] ?>" name="answers[<?= $question['id'] ?>]" value="3" <?php if ($user_answer == 3) echo 'checked="checked"' ?>>
 										</td>
 
 										<td>
-											<input class="form-check-input" type="radio" name="answers[<?= $question['id'] ?>]" value="4" <?php if ($user_answer == 4) echo 'checked="checked"' ?>>
+											<input class="form-check-input" type="radio" qid="<?= $question['id'] ?>" name="answers[<?= $question['id'] ?>]" value="4" <?php if ($user_answer == 4) echo 'checked="checked"' ?>>
 										</td>
 
 										<td class="empty-answer">
-											<input class="form-check-input" type="radio" name="answers[<?= $question['id'] ?>]" value="0" <?php if ($user_answer == 0) echo 'checked="checked"' ?>>
+											<input class="form-check-input" type="radio" qid="<?= $question['id'] ?>" name="answers[<?= $question['id'] ?>]" value="0" <?php if ($user_answer == 0) echo 'checked="checked"' ?>>
 										</td>
 									</tr>
 								<?php } ?>
 							</tbody>
+
+							<!-- listener for temp answers -->
+							<script>
+								$("input[type=radio]").change(function() {
+									qid = $(this).attr('qid');
+									ans = $(this).val();
+									$.ajax({
+										async: true,
+										url: "<?= site_url('exams/submit_temp_answer') ?>",
+										type: "GET",
+										data: {question_id : qid , opt : ans},
+									});
+								})
+							</script>
 						</table>
 					</div>
 

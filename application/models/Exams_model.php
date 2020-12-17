@@ -39,6 +39,17 @@ class Exams_model extends CI_Model
 		return true;
 	}
 
+	public function submitUserAnswerTemp($user_id, $question_id , $opt){
+		/* check if user submitted answer before */
+		$query = $this->db->get_where('answers_temp' , ['question_id' => $question_id , 'user_id' => $user_id]);
+		if($query->num_rows() == 0) {
+			$this->db->insert('answers_temp' , ['question_id' => $question_id , 'user_id' => $user_id , 'opt' => $opt]);
+		} else {
+			$this->db->update('answers_temp' , ['opt' => $opt] , ['question_id' => $question_id , 'user_id' => $user_id]);
+		}
+		return true;
+	}
+
 	public function getExamAnwers($exam_id)
 	{
 		$sql = "
