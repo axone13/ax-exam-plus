@@ -3,7 +3,7 @@ Exam Plus is a tool for students to solve exams together. First, students submit
 
 #### how to install :
 1. First, you need to copy the `system` and `application` folders into a PHP hosting.
-2. Configure CodeIgniter and database through 'application/config/'.
+2. Configure CodeIgniter and database through `application/config/`.
 3. Create a database and import `database.sql` to it (don't forget to configure `application/config/database.php`).
 4. Add admin's password to `application/controllers/Admin.php` (admin is going to need this for managing users and exams).
 5. Create a Username and Password for your users and give it to them.
