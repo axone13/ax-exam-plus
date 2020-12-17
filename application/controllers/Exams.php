@@ -27,7 +27,7 @@ class Exams extends MY_Controller
 			foreach ($_POST['answers'] as $question_id => $answer) {
 				$this->Exams_model->submitUserAnswer($this->data['user']['id'], $question_id, $answer);
 			}
-			$data['success'] = "Answers has been submitted!";
+			$data['success'] = "Answers have been submitted!";
 		}
 
 		/* get exam questions */
